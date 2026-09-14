@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Juego educativo para aprender a crear prompts claros, útiles y responsables.">
+  <meta name="theme-color" content="#111936">
+  <title>Misión Prompt · Entrena a la IA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Volver al inicio de Misión Prompt">
+        <span class="brand-mark" aria-hidden="true">✦</span>
+        <span>Misión Prompt</span>
+      </a>
+      <span class="session-label">Capacitación docente</span>
+    </header>
+
+    <section id="welcome-screen" class="screen welcome-screen" aria-labelledby="welcome-title">
+      <div class="welcome-copy">
+        <span class="eyebrow">Experiencia interactiva · 10 misiones</span>
+        <h1 id="welcome-title">Aprende a darle mejores instrucciones a la <span>IA</span></h1>
+        <p class="lead">Analiza situaciones reales del aula y elige el prompt que produciría el resultado más útil, claro y responsable.</p>
+
+        <div class="formula" aria-label="Fórmula para construir un buen prompt: Rol más Contexto más Tarea más Formato">
+          <div><strong>R</strong><span>Rol</span></div><b>+</b>
+          <div><strong>C</strong><span>Contexto</span></div><b>+</b>
+          <div><strong>T</strong><span>Tarea</span></div><b>+</b>
+          <div><strong>F</strong><span>Formato</span></div>
+        </div>
+
+        <button id="start-button" class="primary-button" type="button">
+          Comenzar misión <span aria-hidden="true">→</span>
+        </button>
+        <p class="microcopy">No necesitas registro. Tus respuestas no se almacenan.</p>
+      </div>
+
+      <div class="hero-card" aria-hidden="true">
+        <div class="orb">
+          <span class="orb-ring ring-one"></span>
+          <span class="orb-ring ring-two"></span>
+          <span class="orb-core">AI</span>
+        </div>
+        <div class="prompt-chip chip-one"><span>R</span> Actúa como docente…</div>
+        <div class="prompt-chip chip-two"><span>C</span> Para grado décimo…</div>
+        <div class="prompt-chip chip-three"><span>F</span> En una tabla…</div>
+      </div>
+    </section>
+
+    <section id="quiz-screen" class="screen quiz-screen hidden" aria-labelledby="question-title">
+      <div class="status-row">
+        <div>
+          <span id="question-counter" class="eyebrow">Misión 1 de 10</span>
+          <p id="question-skill" class="skill-label"></p>
+        </div>
+        <div class="score-pill" aria-live="polite"><span>Puntaje</span><strong id="score">0</strong>/10</div>
+      </div>
+
+      <div class="progress-track" role="progressbar" aria-label="Progreso del juego" aria-valuemin="0" aria-valuemax="100" aria-valuenow="10">
+        <div id="progress-bar" class="progress-bar"></div>
+      </div>
+
+      <article class="question-card">
+        <div class="situation-label"><span aria-hidden="true">⌁</span> Situación educativa</div>
+        <h2 id="question-title"></h2>
+        <p class="choice-instruction">Selecciona el prompt más adecuado:</p>
+        <div id="options" class="options" role="group" aria-label="Opciones de respuesta"></div>
+
+        <div id="feedback" class="feedback hidden" role="status" aria-live="polite">
+          <div id="feedback-icon" class="feedback-icon" aria-hidden="true"></div>
+          <div>
+            <h3 id="feedback-title"></h3>
+            <p id="feedback-text"></p>
+          </div>
+        </div>
+
+        <div class="question-actions">
+          <button id="next-button" class="primary-button hidden" type="button">Siguiente misión <span aria-hidden="true">→</span></button>
+        </div>
+      </article>
+    </section>
+
+    <section id="results-screen" class="screen results-screen hidden" aria-labelledby="results-title">
+      <span class="eyebrow">Misión completada</span>
+      <div id="result-medal" class="result-medal" aria-hidden="true"></div>
+      <h1 id="results-title"></h1>
+      <p id="result-message" class="lead"></p>
+
+      <div class="result-score">
+        <strong><span id="final-score">0</span><small>/10</small></strong>
+        <span id="final-percentage">0%</span>
+      </div>
+
+      <div class="result-stats">
+        <div><span>✓</span><strong id="correct-count">0</strong><small>Correctas</small></div>
+        <div><span>↻</span><strong id="incorrect-count">0</strong><small>Por reforzar</small></div>
+        <div><span>◎</span><strong id="level-label">—</strong><small>Nivel</small></div>
+      </div>
+
+      <aside class="remember-card">
+        <div class="remember-icon" aria-hidden="true">✦</div>
+        <div>
+          <h2>Recuerda</h2>
+          <p class="remember-formula">Rol + Contexto + Tarea + Formato</p>
+          <p>La IA puede ayudarte a crear contenido, pero el criterio pedagógico, la verificación y las decisiones educativas siguen siendo responsabilidad del docente.</p>
+        </div>
+      </aside>
+
+      <button id="restart-button" class="primary-button" type="button">Intentar nuevamente <span aria-hidden="true">↻</span></button>
+    </section>
+  </main>
+
+  <footer>Actividad educativa · Uso responsable de Inteligencia Artificial</footer>
+  <script src="script.js"></script>
+</body>
+</html>
