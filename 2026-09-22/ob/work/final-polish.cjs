@@ -1,0 +1,13 @@
+const fs=require('node:fs');
+const root='outputs/dairy-factory/';
+let app=fs.readFileSync(root+'dist/js/app.js','utf8');
+app=app.replace('state.instructionsOpen=false;state.level=level;',"state.instructionsOpen=false;state.modalBack=null;closeModal();state.level=level;");
+app=app.replace('class="gantt-block ${level.show', 'class="gantt-block ${o.p/horizon<.09?\'compact\':\'\'} ${level.show');
+app=app.replace("  // Optional structured access", "  document.getElementById('modal').addEventListener('cancel',event=>{event.preventDefault();closeModal();});\n  // Optional structured access");
+fs.writeFileSync(root+'dist/js/app.js',app);
+fs.appendFileSync(root+'dist/evolution.css','\n/* Short operations retain their identifier; full details remain accessible. */\n.gantt-block.compact{gap:0;padding:0 1px;font-size:10px;min-width:0}.gantt-block.compact .gantt-product,.gantt-block.compact small{display:none}\n');
+let ui=fs.readFileSync(root+'dist/js/academy-ui.js','utf8').replace('<button class="text-button" data-concept="alpha">Consultar la notación en la Academia ⓘ</button>','<div class="exam-help"><span>Consultar en la Academia:</span> <button class="text-button" data-concept="alpha">Máquinas ⓘ</button> <button class="text-button" data-concept="beta">Restricciones ⓘ</button> <button class="text-button" data-concept="weighted-tardiness">Objetivo ⓘ</button></div>');
+fs.writeFileSync(root+'dist/js/academy-ui.js',ui);
+let t=fs.readFileSync(root+'tests/academy.test.cjs','utf8');
+t=t.replaceAll('S.record(d,levels[2]','S.record(d,levels[10]').replace('points:8000,playerScore:15','points:8500,playerScore:0');
+fs.writeFileSync(root+'tests/academy.test.cjs',t);

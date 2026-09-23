@@ -1,0 +1,987 @@
+[
+  {
+    "mode": "single-machine",
+    "machines": 1,
+    "breaks": [],
+    "abilities": [],
+    "events": [],
+    "startHour": 8,
+    "id": 1,
+    "world": 1,
+    "title": "Tu primer turno",
+    "tag": "Tutorial",
+    "objective": "makespan",
+    "mission": "Nuestra primera máquina está lista. Organiza los tres pedidos y despacha la producción.",
+    "jobs": [
+      {
+        "id": "J1",
+        "product": "Leche fresca",
+        "icon": "🥛",
+        "color": "#d9e9ed",
+        "client": "La Vaquita",
+        "p": 15,
+        "d": 240,
+        "r": 0,
+        "w": 1
+      },
+      {
+        "id": "J2",
+        "product": "Queso fresco",
+        "icon": "🧀",
+        "color": "#f7e5ad",
+        "client": "Mercado Central",
+        "p": 30,
+        "d": 240,
+        "r": 0,
+        "w": 1
+      },
+      {
+        "id": "J3",
+        "product": "Yogurt",
+        "icon": "🥣",
+        "color": "#eddff0",
+        "client": "Café Aurora",
+        "p": 20,
+        "d": 240,
+        "r": 0,
+        "w": 1
+      }
+    ],
+    "show": [],
+    "lesson": "En una máquina, con todos los pedidos disponibles y sin descansos, Cmax es la suma de sus duraciones. Todos los órdenes terminan a los 65 minutos. ¡En la siguiente misión, el orden sí importa!",
+    "hints": [
+      "Cada tarjeta es un pedido. El número de minutos indica cuánto ocupa la máquina.",
+      "La máquina procesa un pedido a la vez. Coloca los tres en su cola.",
+      "No hay pausas ni llegadas tardías: cualquier orden termina a los 65 min."
+    ]
+  },
+  {
+    "mode": "single-machine",
+    "machines": 1,
+    "breaks": [],
+    "abilities": [],
+    "events": [],
+    "startHour": 8,
+    "id": 2,
+    "world": 1,
+    "title": "Pequeños primero",
+    "tag": "Secuenciación",
+    "objective": "total-completion-time",
+    "mission": "La tienda del barrio tiene fila. Consigue que los pedidos terminen pronto, en conjunto.",
+    "jobs": [
+      {
+        "id": "J1",
+        "product": "Queso fresco",
+        "icon": "🧀",
+        "color": "#f7e5ad",
+        "client": "Mercado Central",
+        "p": 35,
+        "d": 240,
+        "r": 0,
+        "w": 1
+      },
+      {
+        "id": "J2",
+        "product": "Leche fresca",
+        "icon": "🥛",
+        "color": "#d9e9ed",
+        "client": "La Vaquita",
+        "p": 10,
+        "d": 240,
+        "r": 0,
+        "w": 1
+      },
+      {
+        "id": "J3",
+        "product": "Mantequilla",
+        "icon": "🧈",
+        "color": "#f7d8b7",
+        "client": "Panadería Alba",
+        "p": 25,
+        "d": 240,
+        "r": 0,
+        "w": 1
+      },
+      {
+        "id": "J4",
+        "product": "Yogurt",
+        "icon": "🥣",
+        "color": "#eddff0",
+        "client": "Café Aurora",
+        "p": 15,
+        "d": 240,
+        "r": 0,
+        "w": 1
+      }
+    ],
+    "show": [],
+    "lesson": "Un pedido largo al principio retrasa a todos los siguientes. Con disponibilidad inicial y sin restricciones, SPT (menor duración primero) minimiza ΣCj.",
+    "hints": [
+      "Lo que tarda el primer pedido también lo esperan todos los siguientes.",
+      "Prueba comenzar con los pedidos que terminan más rápido.",
+      "SPT: ordena de menor a mayor duración. Comienza por J2 y después J4."
+    ]
+  },
+  {
+    "mode": "single-machine",
+    "machines": 1,
+    "breaks": [],
+    "abilities": [],
+    "events": [],
+    "startHour": 8,
+    "id": 3,
+    "world": 1,
+    "title": "Una promesa es una promesa",
+    "tag": "Entregas",
+    "objective": "total-tardiness",
+    "mission": "Cada cliente tiene una hora prometida. Reduce la suma de los minutos de retraso.",
+    "jobs": [
+      {
+        "id": "J1",
+        "product": "Queso fresco",
+        "icon": "🧀",
+        "color": "#f7e5ad",
+        "client": "Mercado Central",
+        "p": 30,
+        "d": 60,
+        "r": 0,
+        "w": 1
+      },
+      {
+        "id": "J2",
+        "product": "Leche fresca",
+        "icon": "🥛",
+        "color": "#d9e9ed",
+        "client": "La Vaquita",
+        "p": 10,
+        "d": 20,
+        "r": 0,
+        "w": 1
+      },
+      {
+        "id": "J3",
+        "product": "Leche chocolatada",
+        "icon": "🍫",
+        "color": "#e3d3c8",
+        "client": "Colegio El Roble",
+        "p": 15,
+        "d": 35,
+        "r": 0,
+        "w": 1
+      },
+      {
+        "id": "J4",
+        "product": "Yogurt",
+        "icon": "🥣",
+        "color": "#eddff0",
+        "client": "Café Aurora",
+        "p": 20,
+        "d": 55,
+        "r": 0,
+        "w": 1
+      }
+    ],
+    "show": [
+      "d"
+    ],
+    "lesson": "Tj cuenta únicamente minutos de retraso; una entrega anticipada no compensa una tardía. EDD (fecha de entrega primero) es una pista útil, pero no garantiza minimizar ΣTj en general.",
+    "hints": [
+      "Compara la duración de cada pedido con la hora prometida.",
+      "Una entrega temprana no borra el retraso de otra. Mira qué compromisos vencen primero.",
+      "Prueba EDD: menor fecha de entrega primero. En otros escenarios podría convenir un orden distinto."
+    ]
+  },
+  {
+    "mode": "single-machine",
+    "machines": 1,
+    "breaks": [],
+    "abilities": [],
+    "events": [],
+    "startHour": 8,
+    "id": 4,
+    "world": 1,
+    "title": "Clientes que cuentan",
+    "tag": "Prioridades",
+    "objective": "weighted-completion",
+    "mission": "El colegio necesita su pedido. Reduce la espera dando más importancia a los clientes prioritarios.",
+    "jobs": [
+      {
+        "id": "J1",
+        "product": "Queso fresco",
+        "icon": "🧀",
+        "color": "#f7e5ad",
+        "client": "Mercado Central",
+        "p": 30,
+        "d": 150,
+        "r": 0,
+        "w": 2
+      },
+      {
+        "id": "J2",
+        "product": "Leche chocolatada",
+        "icon": "🍫",
+        "color": "#e3d3c8",
+        "client": "Colegio El Roble",
+        "p": 20,
+        "d": 150,
+        "r": 0,
+        "w": 5
+      },
+      {
+        "id": "J3",
+        "product": "Leche fresca",
+        "icon": "🥛",
+        "color": "#d9e9ed",
+        "client": "La Vaquita",
+        "p": 10,
+        "d": 150,
+        "r": 0,
+        "w": 2
+      },
+      {
+        "id": "J4",
+        "product": "Yogurt griego",
+        "icon": "🥣",
+        "color": "#dce0f4",
+        "client": "Club Vital",
+        "p": 25,
+        "d": 150,
+        "r": 0,
+        "w": 3
+      }
+    ],
+    "show": [
+      "w"
+    ],
+    "lesson": "Para minimizar ΣwjCj en este escenario básico, compara duración / prioridad. WSPT ordena de menor a mayor pj/wj; una prioridad alta por sí sola no basta.",
+    "hints": [
+      "Las estrellas representan importancia: cada minuto de espera se multiplica por esa prioridad.",
+      "Busca mucho valor para el cliente con pocos minutos de máquina.",
+      "WSPT: ordena por pj/wj de menor a mayor. J2 tiene la menor razón: 20/5 = 4."
+    ]
+  },
+  {
+    "mode": "single-machine",
+    "machines": 1,
+    "breaks": [],
+    "abilities": [],
+    "events": [],
+    "startHour": 8,
+    "id": 5,
+    "world": 2,
+    "title": "El camión de las nueve",
+    "tag": "Disponibilidad",
+    "objective": "total-completion-time",
+    "mission": "La materia prima llega por tandas. Aprovecha el tiempo mientras esperas los siguientes pedidos.",
+    "jobs": [
+      {
+        "id": "J1",
+        "product": "Queso fresco",
+        "icon": "🧀",
+        "color": "#f7e5ad",
+        "client": "Mercado Central",
+        "p": 35,
+        "d": 160,
+        "r": 0,
+        "w": 1
+      },
+      {
+        "id": "J2",
+        "product": "Leche fresca",
+        "icon": "🥛",
+        "color": "#d9e9ed",
+        "client": "La Vaquita",
+        "p": 10,
+        "d": 90,
+        "r": 25,
+        "w": 1
+      },
+      {
+        "id": "J3",
+        "product": "Kumis",
+        "icon": "🥛",
+        "color": "#dcebd0",
+        "client": "Tienda del Barrio",
+        "p": 20,
+        "d": 100,
+        "r": 0,
+        "w": 1
+      },
+      {
+        "id": "J4",
+        "product": "Yogurt",
+        "icon": "🥣",
+        "color": "#eddff0",
+        "client": "Café Aurora",
+        "p": 15,
+        "d": 130,
+        "r": 60,
+        "w": 1
+      },
+      {
+        "id": "J5",
+        "product": "Mantequilla",
+        "icon": "🧈",
+        "color": "#f7d8b7",
+        "client": "Panadería Alba",
+        "p": 25,
+        "d": 150,
+        "r": 35,
+        "w": 1
+      }
+    ],
+    "show": [
+      "r",
+      "d"
+    ],
+    "lesson": "Un pedido no puede comenzar antes de rj. El motor respeta tu cola: si eliges uno que no ha llegado, la máquina espera. Fj mide desde su llegada; Cj se mide desde las 08:00.",
+    "hints": [
+      "Las tarjetas muestran desde cuándo está disponible cada pedido.",
+      "Colocar un pedido todavía no disponible al frente puede dejar la máquina esperando.",
+      "Compara J1 → J2 con J3 → J2: un trabajo corto no siempre conviene si aún no ha llegado."
+    ]
+  },
+  {
+    "mode": "single-machine",
+    "machines": 1,
+    "breaks": [
+      {
+        "start": 120,
+        "end": 140,
+        "label": "Café"
+      }
+    ],
+    "abilities": [],
+    "events": [],
+    "startHour": 8,
+    "id": 6,
+    "world": 2,
+    "title": "Antes del café",
+    "tag": "Descansos",
+    "objective": "makespan",
+    "jobs": [
+      {
+        "id": "J1",
+        "product": "Queso fresco",
+        "icon": "🧀",
+        "color": "#f7e5ad",
+        "client": "Mercado Central",
+        "p": 45,
+        "d": 240,
+        "r": 0,
+        "w": 1
+      },
+      {
+        "id": "J2",
+        "product": "Leche fresca",
+        "icon": "🥛",
+        "color": "#d9e9ed",
+        "client": "La Vaquita",
+        "p": 10,
+        "d": 240,
+        "r": 0,
+        "w": 1
+      },
+      {
+        "id": "J3",
+        "product": "Yogurt",
+        "icon": "🥣",
+        "color": "#eddff0",
+        "client": "Café Aurora",
+        "p": 30,
+        "d": 240,
+        "r": 0,
+        "w": 1
+      },
+      {
+        "id": "J4",
+        "product": "Mantequilla",
+        "icon": "🧈",
+        "color": "#f7d8b7",
+        "client": "Panadería Alba",
+        "p": 35,
+        "d": 240,
+        "r": 0,
+        "w": 1
+      },
+      {
+        "id": "J5",
+        "product": "Kumis",
+        "icon": "🥛",
+        "color": "#dcebd0",
+        "client": "Tienda del Barrio",
+        "p": 20,
+        "d": 240,
+        "r": 0,
+        "w": 1
+      }
+    ],
+    "show": [
+      "d"
+    ],
+    "mission": "A las 10:00 hay una pausa de 20 minutos. Ningún proceso puede quedar a medias. Aprovecha los huecos.",
+    "lesson": "Los trabajos no se interrumpen. Si un pedido no cabe antes de la pausa, empieza después. Terminar exactamente a las 10:00 sí está permitido.",
+    "hints": [
+      "La zona rayada es una pausa obligatoria: ningún pedido puede atravesarla.",
+      "Intenta sumar 120 minutos antes de la pausa para no dejar un hueco.",
+      "45 + 35 + 30 + 10 = 120. Deja el pedido de 20 minutos para después del café."
+    ]
+  },
+  {
+    "mode": "single-machine",
+    "machines": 1,
+    "breaks": [
+      {
+        "start": 120,
+        "end": 140,
+        "label": "Café"
+      }
+    ],
+    "abilities": [],
+    "events": [],
+    "startHour": 8,
+    "id": 7,
+    "world": 2,
+    "title": "Quince minutos de ventaja",
+    "tag": "Elige bien",
+    "objective": "total-tardiness",
+    "jobs": [
+      {
+        "id": "J1",
+        "product": "Queso fresco",
+        "icon": "🧀",
+        "color": "#f7e5ad",
+        "client": "Mercado Central",
+        "p": 30,
+        "d": 180,
+        "r": 105,
+        "w": 1
+      },
+      {
+        "id": "J2",
+        "product": "Leche fresca",
+        "icon": "🥛",
+        "color": "#d9e9ed",
+        "client": "La Vaquita",
+        "p": 10,
+        "d": 120,
+        "r": 105,
+        "w": 1
+      },
+      {
+        "id": "J3",
+        "product": "Yogurt",
+        "icon": "🥣",
+        "color": "#eddff0",
+        "client": "Café Aurora",
+        "p": 40,
+        "d": 70,
+        "r": 0,
+        "w": 1
+      },
+      {
+        "id": "J4",
+        "product": "Leche chocolatada",
+        "icon": "🍫",
+        "color": "#e3d3c8",
+        "client": "Colegio El Roble",
+        "p": 25,
+        "d": 100,
+        "r": 40,
+        "w": 1
+      },
+      {
+        "id": "J5",
+        "product": "Postre lácteo",
+        "icon": "🍮",
+        "color": "#f5dadd",
+        "client": "Restaurante Oliva",
+        "p": 20,
+        "d": 170,
+        "r": 90,
+        "w": 1
+      }
+    ],
+    "show": [
+      "r",
+      "d"
+    ],
+    "mission": "Son las 09:45 cuando llegan leche y queso. Uno cabe antes del descanso. El otro tendrá que esperar.",
+    "lesson": "A las 09:45 quedan 15 minutos hasta la pausa. El pedido de 10 minutos puede terminar; el de 30 no. Duración, llegada y entrega deben leerse juntas.",
+    "hints": [
+      "Hay dos pedidos que llegan a las 09:45. ¿Cuál cabe en 15 minutos?",
+      "Reservar la máquina para un trabajo largo puede impedir una entrega corta a tiempo.",
+      "Intenta J3 → J4 → J5 → J2 → J1. Luego compara los retrasos."
+    ]
+  },
+  {
+    "mode": "single-machine",
+    "machines": 1,
+    "breaks": [
+      {
+        "start": 90,
+        "end": 110,
+        "label": "Limpieza"
+      }
+    ],
+    "abilities": [],
+    "events": [],
+    "startHour": 8,
+    "id": 8,
+    "world": 2,
+    "title": "La ruta del colegio",
+    "tag": "Turno completo",
+    "objective": "weighted-tardiness",
+    "jobs": [
+      {
+        "id": "J1",
+        "product": "Leche chocolatada",
+        "icon": "🍫",
+        "color": "#e3d3c8",
+        "client": "Colegio El Roble",
+        "p": 20,
+        "d": 110,
+        "r": 70,
+        "w": 5
+      },
+      {
+        "id": "J2",
+        "product": "Queso fresco",
+        "icon": "🧀",
+        "color": "#f7e5ad",
+        "client": "Mercado Central",
+        "p": 40,
+        "d": 130,
+        "r": 0,
+        "w": 2
+      },
+      {
+        "id": "J3",
+        "product": "Leche fresca",
+        "icon": "🥛",
+        "color": "#d9e9ed",
+        "client": "La Vaquita",
+        "p": 15,
+        "d": 55,
+        "r": 0,
+        "w": 2
+      },
+      {
+        "id": "J4",
+        "product": "Yogurt griego",
+        "icon": "🥣",
+        "color": "#dce0f4",
+        "client": "Club Vital",
+        "p": 30,
+        "d": 150,
+        "r": 30,
+        "w": 3
+      },
+      {
+        "id": "J5",
+        "product": "Mantequilla",
+        "icon": "🧈",
+        "color": "#f7d8b7",
+        "client": "Panadería Alba",
+        "p": 25,
+        "d": 115,
+        "r": 0,
+        "w": 1
+      },
+      {
+        "id": "J6",
+        "product": "Postre lácteo",
+        "icon": "🍮",
+        "color": "#f5dadd",
+        "client": "Restaurante Oliva",
+        "p": 20,
+        "d": 180,
+        "r": 100,
+        "w": 2
+      }
+    ],
+    "show": [
+      "r",
+      "d",
+      "w"
+    ],
+    "mission": "El transporte escolar sale pronto. Cuida los pedidos prioritarios sin olvidar la limpieza de la línea.",
+    "lesson": "ΣwjTj combina retraso e importancia. Un minuto de retraso con peso 5 cuesta lo mismo que cinco minutos con peso 1. Las entregas son metas, no restricciones duras.",
+    "hints": [
+      "La limpieza impide producir de 09:30 a 09:50.",
+      "El pedido del colegio llega a las 09:10: puede terminar justo antes de la limpieza.",
+      "Prueba reservar el hueco 09:10–09:30 para J1; luego compara las otras prioridades."
+    ]
+  },
+  {
+    "mode": "parallel-identical",
+    "machines": 2,
+    "breaks": [],
+    "abilities": [],
+    "events": [],
+    "startHour": 8,
+    "id": 9,
+    "world": 3,
+    "title": "Mejor en equipo",
+    "tag": "Dos máquinas",
+    "objective": "makespan",
+    "jobs": [
+      {
+        "id": "J1",
+        "product": "Queso fresco",
+        "icon": "🧀",
+        "color": "#f7e5ad",
+        "client": "Mercado Central",
+        "p": 40,
+        "d": 150,
+        "r": 0,
+        "w": 1
+      },
+      {
+        "id": "J2",
+        "product": "Leche fresca",
+        "icon": "🥛",
+        "color": "#d9e9ed",
+        "client": "La Vaquita",
+        "p": 15,
+        "d": 100,
+        "r": 0,
+        "w": 1
+      },
+      {
+        "id": "J3",
+        "product": "Yogurt",
+        "icon": "🥣",
+        "color": "#eddff0",
+        "client": "Café Aurora",
+        "p": 25,
+        "d": 120,
+        "r": 0,
+        "w": 1
+      },
+      {
+        "id": "J4",
+        "product": "Mantequilla",
+        "icon": "🧈",
+        "color": "#f7d8b7",
+        "client": "Panadería Alba",
+        "p": 30,
+        "d": 140,
+        "r": 0,
+        "w": 1
+      },
+      {
+        "id": "J5",
+        "product": "Kumis",
+        "icon": "🥛",
+        "color": "#dcebd0",
+        "client": "Tienda del Barrio",
+        "p": 20,
+        "d": 120,
+        "r": 0,
+        "w": 1
+      }
+    ],
+    "show": [],
+    "mission": "Estrenamos otro pasteurizador. Reparte los pedidos entre A y B para terminar toda la producción pronto.",
+    "lesson": "En máquinas idénticas puedes elegir tanto la asignación como el orden. El fin de producción es el mayor tiempo de finalización entre todas las máquinas.",
+    "hints": [
+      "Dos máquinas pueden trabajar a la vez. Evita que una se quede con casi toda la carga.",
+      "El total es 130 minutos. Dividirlo entre dos da una cota inferior de 65.",
+      "Busca dos grupos de 65: 40 + 25 y 30 + 20 + 15."
+    ]
+  },
+  {
+    "mode": "parallel-identical",
+    "machines": 2,
+    "breaks": [],
+    "abilities": [],
+    "events": [],
+    "startHour": 8,
+    "id": 10,
+    "world": 3,
+    "title": "El equilibrio perfecto",
+    "tag": "Balance de carga",
+    "objective": "load-balance",
+    "jobs": [
+      {
+        "id": "J1",
+        "product": "Queso fresco",
+        "icon": "🧀",
+        "color": "#f7e5ad",
+        "client": "Mercado Central",
+        "p": 35,
+        "d": 180,
+        "r": 0,
+        "w": 1
+      },
+      {
+        "id": "J2",
+        "product": "Leche fresca",
+        "icon": "🥛",
+        "color": "#d9e9ed",
+        "client": "La Vaquita",
+        "p": 10,
+        "d": 180,
+        "r": 0,
+        "w": 1
+      },
+      {
+        "id": "J3",
+        "product": "Yogurt",
+        "icon": "🥣",
+        "color": "#eddff0",
+        "client": "Café Aurora",
+        "p": 25,
+        "d": 180,
+        "r": 0,
+        "w": 1
+      },
+      {
+        "id": "J4",
+        "product": "Mantequilla",
+        "icon": "🧈",
+        "color": "#f7d8b7",
+        "client": "Panadería Alba",
+        "p": 30,
+        "d": 180,
+        "r": 0,
+        "w": 1
+      },
+      {
+        "id": "J5",
+        "product": "Helado",
+        "icon": "🍦",
+        "color": "#d6e8d4",
+        "client": "Heladería Nube",
+        "p": 40,
+        "d": 180,
+        "r": 0,
+        "w": 1
+      },
+      {
+        "id": "J6",
+        "product": "Kumis",
+        "icon": "🥛",
+        "color": "#dcebd0",
+        "client": "Tienda del Barrio",
+        "p": 20,
+        "d": 180,
+        "r": 0,
+        "w": 1
+      }
+    ],
+    "show": [],
+    "mission": "Reparte el esfuerzo. Acerca los minutos de trabajo de ambas máquinas tanto como puedas.",
+    "lesson": "La carga suma los minutos de procesamiento de una máquina. El objetivo es carga máxima − carga mínima; las pausas y la espera no cuentan como trabajo.",
+    "hints": [
+      "Contar pedidos no es lo mismo que contar minutos de trabajo.",
+      "La producción suma 160 minutos: intenta asignar 80 a cada máquina.",
+      "35 + 25 + 20 = 80. El resto también suma 80."
+    ]
+  },
+  {
+    "mode": "parallel-identical",
+    "machines": 3,
+    "breaks": [],
+    "abilities": [],
+    "events": [],
+    "startHour": 8,
+    "id": 11,
+    "world": 3,
+    "title": "Tres líneas, cero excusas",
+    "tag": "Tres máquinas",
+    "objective": "late-jobs",
+    "jobs": [
+      {
+        "id": "J1",
+        "product": "Queso fresco",
+        "icon": "🧀",
+        "color": "#f7e5ad",
+        "client": "Mercado Central",
+        "p": 40,
+        "d": 50,
+        "r": 0,
+        "w": 1
+      },
+      {
+        "id": "J2",
+        "product": "Leche fresca",
+        "icon": "🥛",
+        "color": "#d9e9ed",
+        "client": "La Vaquita",
+        "p": 15,
+        "d": 25,
+        "r": 0,
+        "w": 1
+      },
+      {
+        "id": "J3",
+        "product": "Leche chocolatada",
+        "icon": "🍫",
+        "color": "#e3d3c8",
+        "client": "Colegio El Roble",
+        "p": 20,
+        "d": 40,
+        "r": 10,
+        "w": 1
+      },
+      {
+        "id": "J4",
+        "product": "Yogurt",
+        "icon": "🥣",
+        "color": "#eddff0",
+        "client": "Café Aurora",
+        "p": 30,
+        "d": 65,
+        "r": 0,
+        "w": 1
+      },
+      {
+        "id": "J5",
+        "product": "Helado",
+        "icon": "🍦",
+        "color": "#d6e8d4",
+        "client": "Heladería Nube",
+        "p": 45,
+        "d": 80,
+        "r": 15,
+        "w": 1
+      },
+      {
+        "id": "J6",
+        "product": "Bebida fermentada",
+        "icon": "🧃",
+        "color": "#d9e9e2",
+        "client": "Eco Mercado",
+        "p": 25,
+        "d": 60,
+        "r": 0,
+        "w": 1
+      }
+    ],
+    "show": [
+      "r",
+      "d"
+    ],
+    "mission": "Ahora hay tres líneas. Consigue que la mayor cantidad posible de pedidos llegue a tiempo.",
+    "lesson": "Aquí cuenta el número de pedidos tardíos, no cuánto se retrasan. Un pedido con un minuto de tardanza cuenta igual que uno con veinte.",
+    "hints": [
+      "Reparte primero los compromisos que vencen temprano.",
+      "Una máquina libre puede recibir un pedido recién llegado mientras las otras siguen produciendo.",
+      "Prueba A: J1 → J4; B: J2 → J5; C: J3 → J6. ¿Puedes evitar la entrega tardía que queda?"
+    ]
+  },
+  {
+    "mode": "parallel-identical",
+    "machines": 3,
+    "breaks": [
+      {
+        "start": 50,
+        "end": 70,
+        "label": "Limpieza A",
+        "machine": 0
+      },
+      {
+        "start": 70,
+        "end": 90,
+        "label": "Limpieza B",
+        "machine": 1
+      },
+      {
+        "start": 90,
+        "end": 110,
+        "label": "Limpieza C",
+        "machine": 2
+      }
+    ],
+    "abilities": [],
+    "events": [],
+    "startHour": 8,
+    "id": 12,
+    "world": 3,
+    "title": "Maestría láctea",
+    "tag": "Misión final",
+    "objective": "weighted-tardiness",
+    "jobs": [
+      {
+        "id": "J1",
+        "product": "Leche chocolatada",
+        "icon": "🍫",
+        "color": "#e3d3c8",
+        "client": "Colegio El Roble",
+        "p": 25,
+        "d": 45,
+        "r": 10,
+        "w": 5
+      },
+      {
+        "id": "J2",
+        "product": "Queso fresco",
+        "icon": "🧀",
+        "color": "#f7e5ad",
+        "client": "Mercado Central",
+        "p": 45,
+        "d": 65,
+        "r": 0,
+        "w": 2
+      },
+      {
+        "id": "J3",
+        "product": "Leche fresca",
+        "icon": "🥛",
+        "color": "#d9e9ed",
+        "client": "La Vaquita",
+        "p": 15,
+        "d": 30,
+        "r": 0,
+        "w": 3
+      },
+      {
+        "id": "J4",
+        "product": "Yogurt griego",
+        "icon": "🥣",
+        "color": "#dce0f4",
+        "client": "Club Vital",
+        "p": 35,
+        "d": 80,
+        "r": 25,
+        "w": 4
+      },
+      {
+        "id": "J5",
+        "product": "Helado",
+        "icon": "🍦",
+        "color": "#d6e8d4",
+        "client": "Heladería Nube",
+        "p": 50,
+        "d": 100,
+        "r": 20,
+        "w": 2
+      },
+      {
+        "id": "J6",
+        "product": "Postre lácteo",
+        "icon": "🍮",
+        "color": "#f5dadd",
+        "client": "Restaurante Oliva",
+        "p": 30,
+        "d": 70,
+        "r": 15,
+        "w": 3
+      }
+    ],
+    "show": [
+      "r",
+      "d",
+      "w"
+    ],
+    "mission": "Coordina tres máquinas con limpiezas escalonadas. Protege las entregas de mayor prioridad y cierra tu mejor turno.",
+    "lesson": "Combina disponibilidad, duración, prioridad y calendario de cada máquina. Una regla aislada ya no basta: mueve un pedido, observa el Gantt y compara el objetivo.",
+    "hints": [
+      "Cada máquina tiene su propia ventana de limpieza.",
+      "Los pedidos largos necesitan una ventana continua. Comprueba dónde cabe el helado.",
+      "Reserva pronto una máquina para J5 y otra para J1. Prioriza después el peso y la fecha de cada pedido."
+    ]
+  }
+]
